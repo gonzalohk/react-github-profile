@@ -1,8 +1,8 @@
-name: Realizar la ejecución de 3 tareas secuenciales (configuración, construcción y prueba)
+name: E2 - Realizar la ejecución de 3 tareas secuenciales (configuración, construcción y prueba)
 
 on:
   push:
-    branches: [ main2 ]
+    branches: [ main ]
   
 jobs:
   setup:
@@ -28,4 +28,12 @@ jobs:
       - name: Testing 
         run: yarn test01 2>&1 | tee  logs/text01.html
       - name: show
-        run: ls -la      
+        run: ls -la
+        
+      - name: Log surge.sh
+        uses: dswistowski/surge-sh-action@v1
+        with:
+          domain: 'gonzalo-ci-cd.surge.sh'
+          project: './logs/'
+          login: 'goh.acm@gmail.com'
+          token: '87c635c437ce9798c9f57e9327607980'
