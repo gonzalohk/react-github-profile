@@ -1,0 +1,30 @@
+name: E1 - Crear 5 archivos, comprimir, verificar
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  crear-zip:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Step 1 - Crear directotio temporal
+        run: mkdir temp
+
+      - name: step 2 - Crear 5 archivos
+        run: |
+          cd temp
+          echo 'Mensaje 1' > file01.txt
+          echo 'Mensaje 2' > file02.txt
+          echo 'Mensaje 3' > file03.txt
+          echo 'Mensaje 4' > file04.txt
+          echo 'Mensaje 5' > file05.txt
+          cd ..
+      - uses: papeloto/action-zip@v1
+        with:
+          files: temp/
+          dest: temp.zip
+       
+      - name: step 3 - Verificar el artefacto creado
+        run: ls -la  
