@@ -2,11 +2,11 @@ name: E2 - Realizar la ejecución de 3 tareas secuenciales (configuración, cons
 
 on:
   push:
-    branches: [ main2 ]
+    branches: [ main ]
   
 jobs:
   job-02:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Configuracion - Obteniendo el repositorio
         uses: actions/checkout@v2
