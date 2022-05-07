@@ -1,0 +1,30 @@
+name: Realizar la ejecución de 3 tareas secuenciales (configuración, construcción y prueba)
+
+on:
+  push:
+    branches: [ main ]
+  
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out del repositorio
+        uses: actions/checkout@v2
+      - name: Setup node 12
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.22.6
+      - name: Install Yarn
+        run: npm install -g yarn      
+  build:
+    needs: setup
+    runs-on: ubuntu-lates
+    steps:
+      - name: Install dependencies
+        run: yarn install      
+  test:
+    needs: build  
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test 01
+        run: yarn test01
