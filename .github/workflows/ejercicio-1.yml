@@ -3,7 +3,7 @@ name: E1 - Crear 5 archivos, comprimir, verificar
 on:
   push:
     branches:
-      - main
+      - main1
 jobs:
   crear-zip:
     runs-on: ubuntu-latest
