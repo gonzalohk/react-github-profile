@@ -16,6 +16,6 @@ jobs:
       - name: Mostrar SW
         run: cat /etc/*-release
       - name: Mostrar HW
-        run: top        
+        run: lscpu        
       - name: Mostrar IP
         run: ip a
