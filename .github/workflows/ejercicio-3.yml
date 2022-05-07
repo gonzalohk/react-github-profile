@@ -28,7 +28,7 @@ jobs:
         uses: dswistowski/surge-sh-action@v1
         with:
           domain: 'gonzalo-proyecto.surge.sh'
-          project: './logs/'
+          project: './build/'
           login: 'goh.acm@gmail.com'
           token: '87c635c437ce9798c9f57e9327607980'
         
