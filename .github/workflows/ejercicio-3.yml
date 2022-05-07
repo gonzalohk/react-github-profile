@@ -2,7 +2,7 @@ name: E3 - Realizar 5 tareas secuenciales y paralelas (configuración, construcc
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main3 ]
   
 jobs:
   job-03:
