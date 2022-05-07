@@ -22,9 +22,13 @@ jobs:
     steps:
       - name: Install dependencies
         run: yarn install 2>&1 | tee build.html
+      - name: show
+        run: cat build.html
   test:
     needs: build  
     runs-on: ubuntu-latest
     steps:
       - name: Test 01
         run: yarn test01 2>&1 | tee  text01.html
+      - name: show
+        run: cat text01.html
