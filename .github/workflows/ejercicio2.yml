@@ -15,7 +15,9 @@ jobs:
         with:
           node-version: 12.22.6
       - name: Install Yarn
-        run: npm install -g yarn 2>&1 | tee setup.html   
+        run: npm install -g yarn 2>&1 | tee setup.html  
+      - name: Install Yarn
+        run: ls -la
   build:
     needs: setup
     runs-on: ubuntu-latest
