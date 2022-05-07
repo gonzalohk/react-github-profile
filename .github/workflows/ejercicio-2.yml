@@ -15,7 +15,7 @@ jobs:
         with:
           node-version: 12.22.6
       - name: Install Yarn
-        run: mkdir logs && npm install -g yarn 2>&1 | tee logs/setup.html  
+        run: mkdir logs && npm install -g yarn 2>&1 >> logs/index.html  
       - name: Install Yarn
         run: ls -la
   
@@ -23,10 +23,10 @@ jobs:
         run: yarn install
       
       - name: Build
-        run: yarn build 2>&1 | tee logs/build.html
+        run: yarn build 2>&1 >> logs/build.html
       
       - name: Testing 
-        run: yarn test01 2>&1 | tee  logs/text01.html
+        run: yarn test01 2>&1 >> logs/text01.html
       - name: show
         run: ls -la
         
