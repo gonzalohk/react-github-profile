@@ -18,18 +18,12 @@ jobs:
         run: npm install -g yarn 2>&1 | tee setup.html  
       - name: Install Yarn
         run: ls -la
-  build:
-    needs: setup
-    runs-on: ubuntu-latest
-    steps:
+  
       - name: Install dependencies
         run: yarn install 2>&1 | tee build.html
       - name: show
         run: cat build.html
-  test:
-    needs: build  
-    runs-on: ubuntu-latest
-    steps:
+  
       - name: Test 01
         run: yarn test01 2>&1 | tee  text01.html
       - name: show
