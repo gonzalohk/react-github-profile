@@ -15,21 +15,14 @@ jobs:
         with:
           node-version: 12.22.6
       - name: Configuracion - Instalando yarn
-        run: mkdir logs && npm install -g yarn >> logs/index.html  
-      - name: Install Yarn
-        run: ls -la  
+        run: mkdir logs && npm install -g yarn > logs/index.html  
       - name: Construyendo - Intalando dependencias
-        run: yarn install
-      
+        run: yarn install      
       - name: Construyendo - Build
-        run: yarn build 2>&1 >> logs/index.html
-      
+        run: yarn build >> logs/index.html      
       - name: Probando - Ejecutando test01 
-        run: yarn test01 2>&1 >> logs/index.html
-      - name: show
-        run: ls -la
-        
-      - name: Desplegando logs en un servidor web con surge.sh gonzalo-ci-cd-surge.sh
+        run: yarn test01 >> logs/index.html        
+      - name: Almacenando logs en un servidor web con surge.sh gonzalo-ci-cd-surge.sh
         uses: dswistowski/surge-sh-action@v1
         with:
           domain: 'gonzalo-ci-cd.surge.sh'
