@@ -18,7 +18,7 @@ jobs:
         run: npm install -g yarn > setup.html   
   build:
     needs: setup
-    runs-on: ubuntu-lates
+    runs-on: ubuntu-latest
     steps:
       - name: Install dependencies
         run: yarn install > build.html
