@@ -1,0 +1,23 @@
+
+  
+name: E5 - Ejecutar 3 runners, mostrar las caracteristicas, recursos y direccion IP
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  job-05:
+    runs-on: ${{matrix.os}}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, ubuntu-18.04, macos-latest]    
+    steps:
+      - name: Determinar Sistema Operativo        
+        run: echo "Este proceso se esta ejecutando en el sistema operattivo:${{ runner.os }}!"        
+      - name: Mostrar SW
+        run: cat /etc/*-release
+      - name: Mostrar HW
+        run: top        
+      - name: Mostrar IP
+        run: ip a
