@@ -19,14 +19,13 @@ jobs:
       - name: Install Yarn
         run: ls -la
   
-      - name: Install dependencies
-        run: yarn install 2>&1 | tee logs/build.html
-      - name: show
-        run: cat build.html
-  
-      - name: Test 01
+      - name: Installing dependencies
+        run: yarn install
+      
+      - name: Build
+        run: yarn build 2>&1 | tee logs/build.html
+      
+      - name: Testing 
         run: yarn test01 2>&1 | tee  logs/text01.html
       - name: show
-        run: ls -la
-      - name: show
-        run: cat text01.html
+        run: ls -la      
