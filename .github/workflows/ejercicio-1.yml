@@ -5,14 +5,14 @@ on:
     branches:
       - main1
 jobs:
-  crear-zip:
+  job-01:
     runs-on: ubuntu-latest
     steps:
 
-      - name: Step 1 - Crear directotio temporal
+      - name: Crear directotio temporal
         run: mkdir temp
 
-      - name: step 2 - Crear 5 archivos
+      - name: Crear 5 archivos
         run: |
           cd temp
           echo 'Mensaje 1' > file01.txt
@@ -26,5 +26,5 @@ jobs:
           files: temp/
           dest: temp.zip
        
-      - name: step 3 - Verificar el artefacto creado
+      - name: Verificar el artefacto creado
         run: ls -la  
