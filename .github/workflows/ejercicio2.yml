@@ -15,16 +15,16 @@ jobs:
         with:
           node-version: 12.22.6
       - name: Install Yarn
-        run: npm install -g yarn > setup.html   
+        run: npm install -g yarn 2>&1 | tee setup.html   
   build:
     needs: setup
     runs-on: ubuntu-latest
     steps:
       - name: Install dependencies
-        run: yarn install > build.html
+        run: yarn install 2>&1 | tee build.html
   test:
     needs: build  
     runs-on: ubuntu-latest
     steps:
       - name: Test 01
-        run: yarn test01 > text01.html
+        run: yarn test01 2>&1 | tee  text01.html
