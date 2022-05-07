@@ -8,25 +8,24 @@ jobs:
   setup:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out del repositorio
+      - name: Configuracion - Obteniendo el repositorio
         uses: actions/checkout@v2
-      - name: Setup node 12
+      - name: Configuracion - Instalando node 12
         uses: actions/setup-node@v1
         with:
           node-version: 12.22.6
+      - name: Configuracion - Instalando yarn
+        run: mkdir logs && npm install -g yarn >> logs/index.html  
       - name: Install Yarn
-        run: mkdir logs && npm install -g yarn 2>&1 >> logs/index.html  
-      - name: Install Yarn
-        run: ls -la
-  
-      - name: Installing dependencies
+        run: ls -la  
+      - name: Construyendo - Intalando dependencias
         run: yarn install
       
-      - name: Build
-        run: yarn build 2>&1 >> logs/build.html
+      - name: Construyendo - Build
+        run: yarn build 2>&1 >> logs/index.html
       
-      - name: Testing 
-        run: yarn test01 2>&1 >> logs/text01.html
+      - name: Probando - Ejecutando test01 
+        run: yarn test01 2>&1 >> logs/index.html
       - name: show
         run: ls -la
         
