@@ -2,7 +2,7 @@ name: E2 - Realizar la ejecución de 3 tareas secuenciales (configuración, cons
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main2 ]
   
 jobs:
   job-02:
