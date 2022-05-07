@@ -1,0 +1,41 @@
+name: E3 - Realizar 5 tareas secuenciales y paralelas (configuración, construcción, prueba01, Prueba02 y despliegue)
+
+on:
+  push:
+    branches: [ main ]
+  
+jobs:
+  job-03:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Configuracion - Obteniendo el repositorio
+        uses: actions/checkout@v2
+      - name: Configuracion - Instalando node 12
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.22.6
+      - name: Configuracion - Instalando yarn
+        run: mkdir logs && npm install -g yarn 2>&1 | tee logs/conf.html  
+      - name: Construyendo - Instalando dependencias
+        run: yarn install      
+      - name: Construyendo - Build
+        run: yarn build 2>&1 | tee logs/build.html      
+      - name: Probando - Ejecutando test01 
+        run: yarn test01 2>&1 | tee logs/test01.html                
+      - name: Probando - Ejecutando test02 
+        run: yarn test02 2>&1 | tee logs/test02.html        
+      - name: Despleagando el proyecto en gonzalo-proyecto.surge.sh
+        uses: dswistowski/surge-sh-action@v1
+        with:
+          domain: 'gonzalo-proyecto.surge.sh'
+          project: './logs/'
+          login: 'goh.acm@gmail.com'
+          token: '87c635c437ce9798c9f57e9327607980'
+        
+      - name: Almacenando logs en un servidor web con surge.sh gonzalo-ci-cd-surge.sh
+        uses: dswistowski/surge-sh-action@v1
+        with:
+          domain: 'gonzalo-ci-cd.surge.sh'
+          project: './logs/'
+          login: 'goh.acm@gmail.com'
+          token: '87c635c437ce9798c9f57e9327607980'
