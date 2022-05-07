@@ -5,7 +5,7 @@ on:
     branches: [ main ]
   
 jobs:
-  setup:
+  job-02:
     runs-on: ubuntu-latest
     steps:
       - name: Configuracion - Obteniendo el repositorio
@@ -15,8 +15,8 @@ jobs:
         with:
           node-version: 12.22.6
       - name: Configuracion - Instalando yarn
-        run: mkdir logs && npm install -g yarn 2>&1 | tee logs/configuracion.html  
-      - name: Construyendo - Intalando dependencias
+        run: mkdir logs && npm install -g yarn 2>&1 | tee logs/conf.html  
+      - name: Construyendo - Instalando dependencias
         run: yarn install      
       - name: Construyendo - Build
         run: yarn build 2>&1 | tee logs/build.html      
