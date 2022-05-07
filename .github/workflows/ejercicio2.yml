@@ -31,4 +31,6 @@ jobs:
       - name: Test 01
         run: yarn test01 2>&1 | tee  text01.html
       - name: show
+        run: ls -la
+      - name: show
         run: cat text01.html
