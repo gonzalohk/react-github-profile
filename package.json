@@ -33,7 +33,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test01": "react-scripts test src/__test__/app.test.js --watchAll=false",
+    "test02": "react-scripts test src/__test__/app2.test.js --watchAll=false",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
