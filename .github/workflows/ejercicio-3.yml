@@ -2,11 +2,11 @@ name: E3 - Realizar 5 tareas secuenciales y paralelas (configuración, construcc
 
 on:
   push:
-    branches: [ main3 ]
+    branches: [ main ]
   
 jobs:
   job-03:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Configuracion - Obteniendo el repositorio
         uses: actions/checkout@v2
